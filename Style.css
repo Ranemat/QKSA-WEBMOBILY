@@ -1,0 +1,157 @@
+.Logo { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 90px; 
+  height: 90px;
+  display: inline-block;
+} 
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+.text {
+  display:inline-block; 
+  margin-left: 100px;
+  font-weight:bolder;
+  color:#474740;
+  font-size: 20px;;
+  
+}
+.AD{
+  border-style:solid ;
+  border-color:#F4EEE2;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background-color:#F4EEE2;
+}
+
+
+
+img {
+display: block; /* جعل الصورة عنصرًا مستقلًا */
+margin: 0 auto; /* تحديد المسافة بين الصورة والحواف لتوسيطها أفقياً */
+width: 800px; /* تحديد عرض الصورة */
+height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+}
+
+/* Css menu */ 
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0; 
+}
+ ul li {
+  display: inline-block; 
+  margin-right:10px; 
+}
+ ul li a {
+text-decoration: none; 
+color: #333; 
+font-weight: bold; 
+font-size: 16px; 
+padding: 10px; 
+border-radius: 5px; 
+transition: 0.3s; 
+}
+ul li a:hover {
+background-color: #f0f0f0;
+}
+   
+.container {
+display: flex;
+float: right;
+text-align: right; 
+} 
+
+/* Css footer */ 
+.footer {
+margin: auto ;
+margin-left: auto;
+margin-right: auto;
+bottom: 0;
+width: 100%;
+display: flex;
+font-size: 14px;
+justify-content: center;
+align-items: center;
+
+
+left: 0;
+text-align: center;
+padding: 100px; /* تباعد داخلي */
+z-index:0;
+}
+.centered-text {
+text-align: center;
+}
+
+
+/* Css num */ 
+#number {
+font-size: 24px; /* تحديد حجم النص */
+}
+
+
+/* CSS */
+.size {
+position: relative;
+z-index: 1;
+padding-bottom: 150px; /* احتياطي لضمان عدم تغطية النص بالفوتر */
+
+
+}
+
+/* تطبيق القاعدة فقط على أجهزة الجوال */
+@media only screen and (max-width: 768px) {
+.size img {
+    position: absolute;
+    top: 50%; /* تضمن أن تكون الصورة تحت القائمة المنسدلة */
+    left: 0; /* أو أي موقع آخر يناسب تصميمك */
+}
+}
+.background{
+
+max-width: 100%;
+height: auto;
+position:fixed;
+
+}
+
+
+/* styles.css */
+
+  /* تطبيق التنسيقات المتجاوبة على أجهزة الجوال */
+  @media only screen and (max-width: 600px) {
+    .navbar {
+      display: flex;
+      padding: 40px;
+       }
+      
+        .nav-list {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          justify-content: flex-start;
+          padding: 10px;
+          flex-grow: 1;
+          text-align: right;
+  
+        }
+      
+        .nav-list li {
+          margin-bottom: 10px;
+        }
+      
+        .nav-list li a {
+          color: #333;
+          text-decoration: none;
+          padding: 10px;
+          display: block;
+          
+        }
+      }
+      
+  
