@@ -182,6 +182,25 @@
             searchInput.value = '';
             advertisementList.innerHTML = ''; // Clear advertisements
           });
+
+          searchInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+              event.preventDefault();
+              for (var i = 0; i < advertisements.length; i++) {
+                if (advertisements[i].name.toUpperCase().indexOf(searchInput.value.toUpperCase()) > -1) {
+                  advertisementList.innerHTML = '';
+                  var dropdown = document.createElement('li');
+                  dropdown.id = `dropdown-${advertisements[i].id}`;
+                  dropdown.innerHTML = `
+                    <h3 class="advertisement-title">${advertisements[i].name}</h3>
+                    <p class="advertisement-description">${advertisements[i].description}</p>
+                    <p><a class="advertisement-location" href="${advertisements[i].location}" target="_blank">Find the location by clicking here</a></p>`;
+                  advertisementList.appendChild(dropdown);
+                  break;
+                }
+              }
+            }
+          });
         });
     });
 
