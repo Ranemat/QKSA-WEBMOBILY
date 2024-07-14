@@ -1,0 +1,57 @@
+[
+    {
+      "id": 1,
+      "name": "جوي كافيه",
+      "description": "كافيه و مطعم جميل و رايق. الأسعار تعتبر مرتفعه و الويكند زحمه. فطورهم روعة و السعر متوسط و مرتفع. جلسات داخلية و خارجية. واجهة الرياض و فيه فرع في ذا زون.",
+      "location": "https://maps.app.goo.gl/ERsjjLV6NSYe6Hu99"
+    },
+    {
+      "id": 2,
+      "name": "جوي زون",
+      "description": "ألعاب حركية والكترونية وكهربائية. يوجد مطعم وقاعة للحفلات. الصحافة.",
+      "location": "https://maps.app.goo.gl/VTVCmfrUqU6J2As7A"
+    },
+    {
+      "id": 3,
+      "name": "فرن الضيعة",
+      "description": "يقدم أطباق متنوعة من البيتزا والفطائر. تقديم طلبات التوصيل.",
+      "location": "https://maps.app.goo.gl/w7RaakzniYmWYbpJ7"
+    },
+    {
+      "id": 4,
+      "name": "شوروز جوي",
+      "description": "يقدم شوروز جوي شوروز جوي اذا ما جربت الشوروز هذي الفرصة انك تزور تشوروك كافيه و تطلبه من عندهم حاجة خيالية وفي الدماغ. تقييم الزوار ممتاز ٤.٦/٥.",
+      "location": "https://maps.app.goo.gl/jhj5MX7bAmuS236n7"
+    },
+    {
+      "id": 5,
+      "name": "جوي اند جوس",
+      "description": "قادم من لندن ونيويورك. يقدم أطباق فرنسية لذيذة.",
+      "location": "https://maps.app.goo.gl/ftijjRTovVzSZcmf8"
+    },
+    {
+      "id": 6,
+      "name": "Meem Cafe",
+      "description": "Meem Cafe is pleased to offer a variety of delicious dishes and beverages in Riyadh. Enjoy our cozy ambiance and excellent service while indulging in our menu, which includes a range of coffees, teas, sandwiches, salads, and desserts. Visit us for a delightful dining experience!",
+      "location": "https://maps.app.goo.gl/1xW4sWiZpgm5c36AA"
+    },
+    {
+      "id": 7,
+      "name": "Joy Cafe",
+      "description": "Joy Cafe offers indoor and outdoor seating with outdoor seats overlooking a beautiful fountain. Their menu is diverse with many options, and their service is excellent. The place tends to be crowded.",
+      "location": "https://maps.app.goo.gl/qFmz9NrZbMN8iDeW8"
+    },
+    {
+      "id": 8,
+      "name": "ديب اند جوي",
+      "description": "مطعم متخصص في الوجبات السريعة والمأكولات البحرية.",
+      "location": "https://maps.app.goo.gl/cBCDDJBtnmE4hpJKA"
+    },
+    {
+      "id": 9,
+      "name": "مقهى المسافر",
+      "description": "مقهى مميز يقدم القهوة والوجبات الخفيفة في أجواء مريحة وممتعة. يعتبر مكانًا مثاليًا للاستمتاع بالأجواء الرياضية ومتابعة المباريات.",
+      "location": "https://maps.app.goo.gl/mUXrkzVXKWdoY6wJ9"
+    }
+  ]
+  

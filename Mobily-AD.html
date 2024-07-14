@@ -1,249 +1,210 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>QKSA </title> <!--Name of the web -->
-  <!--Same size in diff divice-->
-  <meta thhp-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+  <title>QKSA</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!--CSS -->
-  <link rel = "stylesheet" href="Style.css">
-  <link rel = "stylesheet" href="Dropdown.css">
-  <link rel = "stylesheet" href="search.css">
-
-
-
-
-
-
-
+  <link rel="stylesheet" href="Style.css">
+  <link rel="stylesheet" href="Dropdown.css">
+  <link rel="stylesheet" href="search.css">
   <style>
-   
-    body{
-      background-color:#F4EEE2;
+    body {
+      background-color: #F4EEE2;
       background-repeat: no-repeat;
       background-size: 100% 100%;
-      background-attachment: fixed; 
-      overflow-x: hidden; /* إخفاء شريط التمرير الرأسي فقط */
-
+      background-attachment: fixed;
+      overflow-x: hidden;
     }
-    </style>
 
+    .advertisement-title {
+      color: #8B0000; /* أحمر غامق */
+      font-weight: bold;
+      font-size: 1.5em;
+    }
 
-    <div class="container">
-      <nav class="navbar">
-      <ul class="nav-list">
-        <li><a href="Mobily-AD.html">Home</a></li>
-        <li><a href="Services">Services</a></li>
-        <li><a href="Portfolio">Portfolio</a></li>
-        <li><a href="Contact">Contact</a></li>
-      </ul>
-      </nav>
-      </div>
-       <!--logo -->
-       <div class="logo-container">
-       <img class="Logo" src="Logo.png" alt="Logo">
-       <br>
-       <p class="text"><em> QKSA!</em></p>
-      </div>
-       <br> 
+    .advertisement-description {
+      color: #8B0000; /* أحمر غامق */
+      font-size: 1.2em;
+      word-wrap: break-word;
+      max-width: 600px; /* تعديل العرض حسب الحاجة */
+    }
+
+    .advertisement-location {
+      color: #0000EE; /* أزرق */
+      text-decoration: underline;
+    }
+
+    /* تكبير حجم أسماء المطاعم في قائمة الإعلانات */
+    #advertisement-list li h3 {
+      font-size: 2em; /* حجم الخط الجديد */
+    }
+
+    .Coffee {
+      float: right;
+      width: 400px;
+      height: 400px;
+    }
+
+    .header {
+      text-align: center;
+      position: relative;
+    }
+
+    .background-image {
+      width: 100%; /* Adjust the width as needed */
+      height: auto;
+      position: absolute;
+      top: 100px; /* Adjust this value to move the image down */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+
+    .container, .logo-container, #searchForm {
+      position: relative;
+      z-index: 1;
+    }
+
+    #searchForm {
+      margin-top: 250px; /* Adjust this value based on the height of your background image */
+    }
+  </style>
 </head>
 <body>
+  <header class="header">
+    <img src="Background.jpg" alt="Background Image" class="background-image">
+    <div class="container">
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li><a href="Mobily-AD.html">Home</a></li>
+          <li><a href="Services">Services</a></li>
+          <li><a href="Portfolio">Portfolio</a></li>
+          <li><a href="Contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="logo-container">
+      <img class="Logo" src="Logo.png" alt="Logo">
+      <br>
+      <p class="text"><em>QKSA!</em></p>
+    </div>
+  </header>
+  <br>
 
-  
-  
+  <form id="searchForm" action="/search" method="get">
+    <div id="search-container">
+      <input type="text" id="searchInput" class="search-box" onkeyup="searchFunction()" placeholder="Search for names.." title="Type in a name">
+      <button type="reset" id="clearButton">Clear</button>
+    </div>
+    <br>
+  </form>
 
-
-<!--img in header -->
-<header>
-  <img clsss="background"src="Background.jpg" >
-</header>
-
-<!--Search -->
-<form action="/search" method="get" >
-  <div id="search-container">
-<input type="text" id="searchInput" class="search-box" onkeyup="searchFunction()" placeholder="Search for names.." title="Type in a name">
-<button type="reset">Clear</button>
-
-</div>
-<br> 
-</form>
-
-<div id="searchContent" class="search-content">
-<ol id="search-list">
-  <li><a href="#">A</a></li>
-  <li><a href="#">B</a></li>
-
-  <li><a href="#">C</a></li>
-  <li><a href="#">D</a></li>
-
-  <li><a href="#">AD</a></li>
-  <li><a href="#">DB</a></li>
-  <li><a href="#">CC</a></li>
-</ol>
-</div>
-
-<!--ADs -->
-<!--img Coffee -->
-<div class="size">
-<div class="image-container">
-<img class="Coffee" src="Coffee.png" alt="Coffee img" style=" float: right; width: 400px; height: 400px;">
-</div>
-
-<br>  
-<!-- Dropdwon list-->
-<div class="dropdown-container">
-  <div class="dropdown">
-    <label><h2>Advertisements</h2> </label> 
-      <button class="dropdown-btn" onclick="toggleDropdown(1)" style="color: black;">Coffee Name</button>
-      <div id="dropdown-content-1" class="dropdown-content">
-        <p for="text-input" style=" font-weight: bolder ; color: brown ;" >Coffee Name:    
-          <p class="Description" style="color: brown ;"> 
-             Descriptions, like how many branches open in Saudi Arabia and .........  </p>
-        </p>
-        <br>  
-      
-      <div class="text-right">
-        <p><span style="color:black;">  Mention by  </span>
-          <img src="people.png" style="width: 35px; height: auto; float: right; margin-left: 20px; margin-right: 10px ;">
-          <span style="color: orange;">  2K</span> <a href="https://www.google.com/maps"style="text-decoration: underline ;color: blue;"> Find the location by clicking here </a>  </p>     <br></p>
-    
-      </div>
-          </div>
+  <div id="searchContent" class="search-content">
+    <ol id="search-list">
+      <!-- سيتم إضافة الإعلانات هنا ديناميكيا بواسطة جافا سكريبت -->
+    </ol>
   </div>
-  <div class="dropdown">
-      <button class="dropdown-btn" onclick="toggleDropdown(2)" style="color: black;">Coffee Name</button>
-      <div id="dropdown-content-2" class="dropdown-content">
-        <p for="text-input" style=" font-weight: bolder ; color: brown ;" >Coffee Name:    
-          <p class="Description" style="color: brown ;"> 
-             Descriptions, like how many branches open in Saudi Arabia and .........  </p>
-        </p>
-        <br>  
-      
-      <div class="text-right">
-        <p><span style="color:black;">  Mention by  </span><span style="color: orange;"> 2K </span>
-          <img src="people.png" style="width: 35px; height: auto; float: right; margin-left: 20px; margin-right: 10px ;">
-          <a href="https://www.google.com/maps"style="text-decoration: underline ;color: blue;"> Find the location by clicking here </a>  </p>     <br>
 
-      </div>
-          </div>
+  <div class="size">
+    <div class="image-container">
+      <img class="Coffee" src="Coffee.png" alt="Coffee img">
+    </div>
+    <br>
+    <div class="dropdown-container">
+      <ul id="advertisement-list">
+        <!-- سيتم إضافة الإعلانات هنا ديناميكيا بواسطة جافا سكريبت -->
+      </ul>
+      <h2 class="advertisements-title" style="margin-left: 20px;">Advertisements</h2>
+    </div>
   </div>
-  <!-- يمكنك إضافة المزيد من القوائم السقوطية هنا -->
-  <div class="dropdown">
-    <button class="dropdown-btn" onclick="toggleDropdown(3)" style="color: black;">Coffee Name</button>
-    <div id="dropdown-content-3" class="dropdown-content">
 
-      <p for="text-input" style=" font-weight: bolder ; color: brown ;" >Coffee Name:    
-        <p class="Description" style="color: brown ;"> 
-           Descriptions, like how many branches open in Saudi Arabia and .........  </p>
-      </p>
-      <br>  
-    
-      <div class="text-right">
-        <p><span style="color:black;">  Mention by  </span><span style="color: orange;"> 2K </span>
-          <img src="people.png" style="width: 35px; height: auto; float: right; margin-left: 20px; margin-right: 10px ;">
-          <a href="https://www.google.com/maps"style="text-decoration: underline ;color: blue;"> Find the location by clicking here </a>  </p>     <br>
+  <script src="Dropdown.js"></script>
+  <script>
+    function searchFunction() {
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById('searchInput');
+      filter = input.value.toUpperCase();
+      ul = document.getElementById('search-list');
+      li = ul.getElementsByTagName('li');
 
-      </div>
-        </div>
-</div>
-</div>
-
-  <!--JS -->
-<script src="Dropdown.js"></script>
-
-
-<script>
-
-// search 
-
-function searchFunction() {
-        var input, filter, ul, li, a, i, txtValue;
-        input = document.getElementById('searchInput');
-        filter = input.value.toUpperCase();
-        ul = document.getElementById('search-list');
-        li = ul.getElementsByTagName('li');
-
-        ul.style.display = "block";
-        // يتم التحقق من كل عنصر في القائمة
-        for (i = 0; i < li.length; i++) {
-          a = li[i].getElementsByTagName("a")[0];
-            txtValue = li[i].textContent || li[i].innerText;
-            // إذا كانت الكلمة تحتوي على الحرف المدخل، يتم عرض العنصر، وإلا يتم إخفاؤه
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                li[i].style.display = "";
-            } else {
-                li[i].style.display = "none";
-            }
+      ul.style.display = "block";
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = li[i].textContent || li[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
         }
+      }
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-    searchForm.addEventListener('click', function() {
-      searchContent.style.display = 'block'; // عرض محتوى البحث
-      searchInput.focus(); // التركيز على حقل البحث
+      fetch('restaurants.json')
+        .then(response => response.json())
+        .then(advertisements => {
+          var adList = document.getElementById('search-list');
+          var advertisementList = document.getElementById('advertisement-list');
+          
+          advertisements.forEach(function(ad) {
+            // Add to search list
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            a.textContent = ad.name;
+            a.href = "#";
+            a.onclick = function() {
+              // Clear previous advertisement
+              advertisementList.innerHTML = '';
+
+              // Add new advertisement
+              var dropdown = document.createElement('li');
+              dropdown.id = `dropdown-${ad.id}`;
+              dropdown.innerHTML = `
+                <h3 class="advertisement-title">${ad.name}</h3>
+                <p class="advertisement-description">${ad.description}</p>
+                <p><a class="advertisement-location" href="${ad.location}" target="_blank">Find the location by clicking here</a></p>`;
+              advertisementList.appendChild(dropdown);
+            };
+            li.appendChild(a);
+            adList.appendChild(li);
+          });
+
+          searchForm.addEventListener('click', function() {
+            searchContent.style.display = 'block';
+            searchInput.focus();
+          });
+
+          clearButton.addEventListener('click', function(event) {
+            event.stopPropagation();
+            searchContent.style.display = 'none';
+            searchInput.value = '';
+            advertisementList.innerHTML = ''; // Clear advertisements
+          });
+        });
     });
-      clearButton.addEventListener('click', function(event) {
-      event.stopPropagation(); // منع انتشار الحدث إلى صندوق البحث
-      searchContent.style.display = 'none'; // إخفاء محتوى البحث
-      searchInput.value = ''; // مسح محتوى حقل البحث
-    });
-  });
-  
-
-
-/*
-//change color for massage
-// اختيار العنصر المدخل النصي
-const messageInput = document.getElementById('message-input');
-
-// اللون المحدد
-const chosenColor = 'brown'; // هنا يمكنك تغيير اللون إلى اللون الذي تريده
-
-// إضافة مستمع لحدث الكتابة
-messageInput.addEventListener('input', function() {
-  // الحصول على القيمة المكتوبة
-  const text = messageInput.value;
-  
-  // تغيير لون النص
-  messageInput.style.color = chosenColor;
-});
-*/
-
-
-
-// Cognigy Webchat Embed Code 
 
     function initWebchat(configUrl) {
       window.cognigyWebchatSettings = {
         configUrl: configUrl,
-        channel: "ca32de8e-497b-4687-bc46-e933d376d9be" // Replace with your channel ID
+        channel: "ca32de8e-497b-4687-bc46-e933d376d9be"
       };
- 
+
       const script = document.createElement('script');
-      script.src = "https://webchat-app.cognigy.ai/v3/" + configUrl.split("/").pop(); // Constructing webchat URL
+      script.src = "https://webchat-app.cognigy.ai/v3/" + configUrl.split("/").pop();
       script.onload = function() {
         console.log('Cognigy Webchat loaded.');
       };
       document.head.appendChild(script);
     }
 
-    // Initialize Cognigy Webchat with your endpoint URL
     initWebchat("https://endpoint-app.cognigy.ai/1e2e81c29d60234b4240dda4f08cad73dc74f407af5d37678ddbdd5a69b2afca");
+  </script>
 
-
-</script>
-
- 
-<div class="spacer"></div>
-
-</div>
-</div>
-<!--Footer -->
-<footer class="footer">
-  <p class="centered-text"> Mobily2024 - CC Trainees </p>
-</footer>
-
-
+  <div class="spacer"></div>
+  <footer class="footer">
+    <p class="centered-text">Mobily2024 - CC Trainees</p>
+  </footer>
 </body>
 </html>

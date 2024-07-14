@@ -1,10 +1,44 @@
-
 function toggleDropdown(dropdownId) {
+    // إغلاق جميع القوائم المنسدلة المفتوحة
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+        }
+    }
+
+    // فتح القائمة المطلوبة
     var dropdownContent = document.getElementById("dropdown-content-" + dropdownId);
     dropdownContent.classList.toggle("show");
 }
 
-toggleDropdown(dropdownId)
+// جلب البيانات من ملف JSON المحلي وإضافتها إلى القوائم المنسدلة
+document.addEventListener('DOMContentLoaded', (event) => {
+    const dropdownContainer = document.querySelector(".dropdown-container");
+
+    fetch('restaurants.json')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'dropdown';
+
+                div.innerHTML = `
+                    <button class="dropdown-btn" onclick="toggleDropdown(${item.id})" style="color: black;">${item.name}</button>
+                    <div id="dropdown-content-${item.id}" class="dropdown-content">
+                        <p style="font-weight: bolder; color: brown;">${item.name}</p>
+                        <p class="Description" style="color: brown;">${item.description}</p>
+                        <p>
+                            <a href="${item.location}" style="text-decoration: underline; color: blue;">Find the location by clicking here</a>
+                        </p>
+                    </div>
+                `;
+                dropdownContainer.appendChild(div);
+            });
+        })
+        .catch(error => console.error('Error fetching the data:', error));
+});
 
 // إغلاق القوائم السقوطية عند النقر خارجها
 window.onclick = function(event) {
@@ -19,21 +53,15 @@ window.onclick = function(event) {
     }
 }
 
-// change color of num 
-  // الحصول على عنصر الإدخال
-  var inputNumber = document.getElementById("inputNumber");
-
-// تحديث لون الرقم عند تغيير قيمة الإدخال
+// تغيير لون الرقم عند تغيير قيمة الإدخال
+var inputNumber = document.getElementById("inputNumber");
 inputNumber.addEventListener("input", function() {
-    // قراءة الرقم من الإدخال
     var number = parseInt(inputNumber.value);
-
-    // تغيير لون الرقم وفقاً للشروط
     if (number > 1000) {
-        inputNumber.style.color = "green"; // اللون الأخضر للأرقام أكبر من 1000
+        inputNumber.style.color = "green";
     } else if (number > 200) {
-        inputNumber.style.color = "orange"; // اللون البرتقالي للأرقام أكبر من 200 وأقل من ألف
+        inputNumber.style.color = "orange";
     } else {
-        inputNumber.style.color = "pink"; // اللون الوردي للأرقام أقل من 200
+        inputNumber.style.color = "pink";
     }
 });
