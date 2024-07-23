@@ -4,7 +4,7 @@
   <title>QKSA</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!--CSS -->
   <link rel="stylesheet" href="Style.css">
   <link rel="stylesheet" href="Dropdown.css">
@@ -70,6 +70,76 @@
     #searchForm {
       margin-top: 250px; /* Adjust this value based on the height of your background image */
     }
+
+    /* نمط زر فتح المحادثة */
+    #chatbot-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #0084ff;
+      border-radius: 50%;
+      color: white;
+      text-align: center;
+      line-height: 60px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    /* نمط صندوق المحادثة */
+    #chatbot-container {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 60px;
+      height: 100px;
+      border: 1px solid #ccc;
+      background: white;
+      display: none;
+      z-index: 1000;
+    }
+
+    .centered-content {
+      width: 100%;
+      max-width: 600px; /* نفس عرض صندوق البحث */
+      margin: 20px auto;
+      padding: 15px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .rtl {
+      text-align: right;
+      direction: rtl;
+    }
+
+    .ltr {
+      text-align: left;
+      direction: ltr;
+    }
+
+    .advertisement-title {
+      margin-bottom: 10px;
+    }
+
+    .advertisement-description {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .advertisement-location {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .advertisement-location:hover {
+      text-decoration: underline;
+    }
+
   </style>
 </head>
 <body>
@@ -79,9 +149,8 @@
       <nav class="navbar">
         <ul class="nav-list">
           <li><a href="Mobily-AD.html">Home</a></li>
-          <li><a href="Services">Services</a></li>
-          <li><a href="Portfolio">Portfolio</a></li>
-          <li><a href="Contact">Contact</a></li>
+          <li><a href="About-us.html">About us</a></li>
+          <li><a href="Portfolio.html">Portfolio</a></li>
         </ul>
       </nav>
     </div>
@@ -93,10 +162,10 @@
   </header>
   <br>
 
-  <form id="searchForm" action="/search" method="get">
+  <form id="searchForm">
     <div id="search-container">
       <input type="text" id="searchInput" class="search-box" onkeyup="searchFunction()" placeholder="Search for names.." title="Type in a name">
-      <button type="reset" id="clearButton">Clear</button>
+      <button type="button" id="clearButton" onclick="clearSearchBox()">Clear</button>
     </div>
     <br>
   </form>
@@ -111,114 +180,178 @@
     <div class="image-container">
       <img class="Coffee" src="Coffee.png" alt="Coffee img">
     </div>
-    <br>
+    <h2 class="advertisements-title"  style="margin-left: 60px;">Advertisements</h2>
     <div class="dropdown-container">
-      <ul id="advertisement-list">
-        <!-- سيتم إضافة الإعلانات هنا ديناميكيا بواسطة جافا سكريبت -->
-      </ul>
-      <h2 class="advertisements-title" style="margin-left: 20px;">Advertisements</h2>
+      <!-- سيتم إضافة الإعلانات هنا ديناميكيا بواسطة جافا سكريبت -->
     </div>
   </div>
 
+  <div id="search-results"></div>
+
+  <!-- صندوق المحادثة -->
+  <div id="chatbot-container"></div>
+
   <script src="Dropdown.js"></script>
+  <script src="https://github.com/Cognigy/WebchatWidget/releases/download/v3.0.0-beta.30/webchat.js"></script>
+
   <script>
-    function searchFunction() {
-      var input, filter, ul, li, a, i, txtValue;
-      input = document.getElementById('searchInput');
-      filter = input.value.toUpperCase();
-      ul = document.getElementById('search-list');
-      li = ul.getElementsByTagName('li');
-
-      ul.style.display = "block";
-      for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = li[i].textContent || li[i].innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          li[i].style.display = "";
-        } else {
-          li[i].style.display = "none";
-        }
-      }
-    }
-
+    // جلب البيانات من ملف JSON المحلي وإضافتها إلى القوائم المنسدلة
     document.addEventListener('DOMContentLoaded', function() {
       fetch('restaurants.json')
         .then(response => response.json())
         .then(advertisements => {
+          window.advertisements = advertisements; // حفظ البيانات لتسهيل الوصول إليها في وظيفة البحث
+
           var adList = document.getElementById('search-list');
-          var advertisementList = document.getElementById('advertisement-list');
-          
+          var advertisementList = document.querySelector('.dropdown-container');
+
           advertisements.forEach(function(ad) {
             // Add to search list
             var li = document.createElement('li');
+            li.className = 'search-result';
             var a = document.createElement('a');
             a.textContent = ad.name;
             a.href = "#";
+
+            // تحديد لغة النص
+            if (ad.name.match(/[\u0600-\u06FF]/)) {
+              a.classList.add('arabic-text');
+            } else {
+              a.classList.add('english-text');
+            }
+
             a.onclick = function() {
               // Clear previous advertisement
               advertisementList.innerHTML = '';
 
+              // تحديد لغة النص
+              var nameClass = ad.name.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
+              var descriptionClass = ad.description.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
+              var locationText = ad.name.match(/[\u0600-\u06FF]/) ? 'تجد الموقع عن النقر هنا' : 'Find the location by clicking here';
+
               // Add new advertisement
-              var dropdown = document.createElement('li');
-              dropdown.id = `dropdown-${ad.id}`;
+              var dropdown = document.createElement('div');
+              dropdown.className = 'dropdown';
+
               dropdown.innerHTML = `
-                <h3 class="advertisement-title">${ad.name}</h3>
-                <p class="advertisement-description">${ad.description}</p>
-                <p><a class="advertisement-location" href="${ad.location}" target="_blank">Find the location by clicking here</a></p>`;
+                <button class="dropdown-btn" onclick="toggleDropdown(${ad.id})" style="color: black;">${ad.name}</button>
+                <div id="dropdown-content-${ad.id}" class="dropdown-content">
+                  <p class="${nameClass}" style="font-weight: bolder; color: brown;">${ad.name}</p>
+                  <p class="${descriptionClass} Description" style="color: brown;">${ad.description}</p>
+                  <p class="${descriptionClass}">
+                    <a href="${ad.location}" style="text-decoration: underline; color: blue;">${locationText}</a>
+                  </p>
+                </div>
+              `;
               advertisementList.appendChild(dropdown);
+
+              // إخفاء قائمة البحث عند النقر على نتيجة
+              document.getElementById('searchContent').style.display = 'none';
             };
             li.appendChild(a);
             adList.appendChild(li);
           });
 
-          searchForm.addEventListener('click', function() {
-            searchContent.style.display = 'block';
-            searchInput.focus();
-          });
-
-          clearButton.addEventListener('click', function(event) {
-            event.stopPropagation();
-            searchContent.style.display = 'none';
-            searchInput.value = '';
-            advertisementList.innerHTML = ''; // Clear advertisements
-          });
-
-          searchInput.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-              event.preventDefault();
-              for (var i = 0; i < advertisements.length; i++) {
-                if (advertisements[i].name.toUpperCase().indexOf(searchInput.value.toUpperCase()) > -1) {
-                  advertisementList.innerHTML = '';
-                  var dropdown = document.createElement('li');
-                  dropdown.id = `dropdown-${advertisements[i].id}`;
-                  dropdown.innerHTML = `
-                    <h3 class="advertisement-title">${advertisements[i].name}</h3>
-                    <p class="advertisement-description">${advertisements[i].description}</p>
-                    <p><a class="advertisement-location" href="${advertisements[i].location}" target="_blank">Find the location by clicking here</a></p>`;
-                  advertisementList.appendChild(dropdown);
-                  break;
-                }
-              }
-            }
-          });
+          // تحديث العناصر الموجودة بالفعل في القائمة
+          updateAdvertisementList(advertisements);
         });
+
+      searchForm.addEventListener('click', function() {
+        searchContent.style.display = 'block';
+        searchInput.focus();
+      });
+
+      searchInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          filterSearchResults();
+        }
+      });
     });
 
-    function initWebchat(configUrl) {
-      window.cognigyWebchatSettings = {
-        configUrl: configUrl,
-        channel: "ca32de8e-497b-4687-bc46-e933d376d9be"
-      };
+    function updateAdvertisementList(advertisements) {
+      var advertisementList = document.querySelector('.dropdown-container');
+      advertisementList.innerHTML = '';
 
-      const script = document.createElement('script');
-      script.src = "https://webchat-app.cognigy.ai/v3/" + configUrl.split("/").pop();
-      script.onload = function() {
-        console.log('Cognigy Webchat loaded.');
-      };
-      document.head.appendChild(script);
+      advertisements.forEach(function(ad) {
+        var dropdown = document.createElement('div');
+        dropdown.className = 'dropdown';
+
+        // تحديد لغة النص
+        var nameClass = ad.name.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
+        var descriptionClass = ad.description.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
+        var locationText = ad.name.match(/[\u0600-\u06FF]/) ? 'تجد الموقع عن النقر هنا' : 'Find the location by clicking here';
+
+        dropdown.innerHTML = `
+          <button class="dropdown-btn" onclick="toggleDropdown(${ad.id})" style="color: black;">${ad.name}</button>
+          <div id="dropdown-content-${ad.id}" class="dropdown-content">
+            <p class="${nameClass}" style="font-weight: bolder; color: brown;">${ad.name}</p>
+            <p class="${descriptionClass} Description" style="color: brown;">${ad.description}</p>
+            <p class="${descriptionClass}">
+              <a href="${ad.location}" style="text-decoration: underline; color: blue;">${locationText}</a>
+            </p>
+          </div>
+        `;
+        advertisementList.appendChild(dropdown);
+      });
     }
 
-    initWebchat("https://endpoint-app.cognigy.ai/1e2e81c29d60234b4240dda4f08cad73dc74f407af5d37678ddbdd5a69b2afca");
+    function searchFunction() {
+      filterSearchResults();
+    }
+
+    function filterSearchResults() {
+      var input = document.getElementById('searchInput').value.toUpperCase();
+      var advertisementList = document.querySelector('.dropdown-container');
+
+      advertisementList.innerHTML = '';
+
+      window.advertisements.forEach(function(ad) {
+        if (ad.name.toUpperCase().includes(input)) {
+          var dropdown = document.createElement('div');
+          dropdown.className = 'dropdown';
+
+          // تحديد لغة النص
+          var nameClass = ad.name.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
+          var descriptionClass = ad.description.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
+          var locationText = ad.name.match(/[\u0600-\u06FF]/) ? 'تجد الموقع عن النقر هنا' : 'Find the location by clicking here';
+
+          dropdown.innerHTML = `
+            <button class="dropdown-btn" onclick="toggleDropdown(${ad.id})" style="color: black;">${ad.name}</button>
+            <div id="dropdown-content-${ad.id}" class="dropdown-content">
+              <p class="${nameClass}" style="font-weight: bolder; color: brown;">${ad.name}</p>
+              <p class="${descriptionClass} Description" style="color: brown;">${ad.description}</p>
+              <p class="${descriptionClass}">
+                <a href="${ad.location}" style="text-decoration: underline; color: blue;">${locationText}</a>
+              </p>
+            </div>
+          `;
+          advertisementList.appendChild(dropdown);
+        }
+      });
+    }
+
+    function clearSearchBox() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('search-list').style.display = 'none';
+    }
+
+    // Cognigy Webchat Widget
+    initWebchat("https://endpoint-app.cognigy.ai/1e2e81c29d60234b4240dda4f08cad73dc74f407af5d37678ddbdd5a69b2afca", {
+        // Configuration options
+        style: {
+            // Custom styles for the chat widget
+            width: '50px',
+            height: '100px'
+        },
+        settings: {
+            // Other settings like greeting message
+            // greeting: "Hello! How can I assist you today?"
+        }
+    }).then(function(webchat) {
+        // Embedding the webchat in a specific HTML element
+        webchat.render(document.getElementById("chatbot-container"));
+    });
   </script>
 
   <div class="spacer"></div>

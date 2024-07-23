@@ -1,16 +1,19 @@
+// وظيفة لتبديل حالة القائمة المنسدلة
 function toggleDropdown(dropdownId) {
-    // إغلاق جميع القوائم المنسدلة المفتوحة
     var dropdowns = document.getElementsByClassName("dropdown-content");
     for (var i = 0; i < dropdowns.length; i++) {
         var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
+        if (openDropdown.classList.contains('show') && openDropdown.id !== "dropdown-content-" + dropdownId) {
             openDropdown.classList.remove('show');
         }
     }
 
-    // فتح القائمة المطلوبة
     var dropdownContent = document.getElementById("dropdown-content-" + dropdownId);
-    dropdownContent.classList.toggle("show");
+    if (dropdownContent) {
+        dropdownContent.classList.toggle("show");
+    } else {
+        console.error('Dropdown content not found for ID:', dropdownId);
+    }
 }
 
 // جلب البيانات من ملف JSON المحلي وإضافتها إلى القوائم المنسدلة
@@ -40,7 +43,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         .catch(error => console.error('Error fetching the data:', error));
 });
 
-// إغلاق القوائم السقوطية عند النقر خارجها
+// إغلاق القوائم المنسدلة عند النقر خارجها
 window.onclick = function(event) {
     if (!event.target.matches('.dropdown-btn')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -54,14 +57,20 @@ window.onclick = function(event) {
 }
 
 // تغيير لون الرقم عند تغيير قيمة الإدخال
+/*
 var inputNumber = document.getElementById("inputNumber");
-inputNumber.addEventListener("input", function() {
-    var number = parseInt(inputNumber.value);
-    if (number > 1000) {
-        inputNumber.style.color = "green";
-    } else if (number > 200) {
-        inputNumber.style.color = "orange";
-    } else {
-        inputNumber.style.color = "pink";
-    }
-});
+if (inputNumber) {
+    inputNumber.addEventListener("input", function() {
+        var number = parseInt(inputNumber.value);
+        if (number > 1000) {
+            inputNumber.style.color = "green";
+        } else if (number > 200) {
+            inputNumber.style.color = "orange";
+        } else {
+            inputNumber.style.color = "pink";
+        }
+    });
+} else {
+    console.error('Input element with ID "inputNumber" not found.');
+}
+*/

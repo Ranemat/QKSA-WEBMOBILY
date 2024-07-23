@@ -60,3 +60,40 @@
 .text-right a {
   float: left;
 }
+/* النصوص باللغة العربية */
+.arabic-text {
+  direction: rtl;
+  text-align: right;
+  margin-right: 10px; /* إضافة هامش من اليمين */
+}
+
+/* النصوص باللغة الإنجليزية */
+.english-text {
+  direction: ltr;
+  text-align: left;
+  margin-left: 10px; /* إضافة هامش من اليسار */
+}
+
+
+/* الروابط باللغة العربية */
+.arabic-link {
+  display: block;
+  direction: rtl;
+  text-align: right;
+  margin-right: 10px; /* إضافة هامش من اليمين */
+}
+
+/* الروابط باللغة الإنجليزية */
+.english-link {
+  display: block;
+  direction: ltr;
+  text-align: left;
+  margin-left: 10px; /* إضافة هامش من اليسار */
+}
+
+/* Add this style to the Dropdown.css file */
+.dropdown-container {
+  position: relative;
+  left: 50px; /* Adjust this value to move the list closer to the image */
+}
+
