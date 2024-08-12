@@ -26,6 +26,36 @@
             position: relative;
         }
 
+        .contact-info ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .contact-info li {
+            margin-bottom: 10px;
+        }
+
+        .contact-info i {
+            margin-right: 8px;
+        }
+
+        .contact-assistance {
+            margin-top: 40px; /* زيادة المسافة العلوية */
+            font-size: 18px;
+            color: #333;
+        }
+
+        .contact-assistance a {
+            color: black; /* استخدام لون مشابه للون في الصورة */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px; /* تصغير حجم النص للأرقام */
+        }
+
+        .contact-assistance a:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
@@ -62,11 +92,16 @@
                     <li><a href="mailto:Raneemaltwijri@gmail.com">Raneemaltwijri@gmail.com</a></li><br>
                     <li><a href="mailto:Fahdahabdulmohsen@gmail.com">Fahdahabdulmohsen@gmail.com</a></li>
                 </ul>
-                <li><i class="fas fa-phone"></i> Phone Number:</li>
+                <li><span role="img" aria-label="briefcase">💼</span> Business Number:</li>
                 <ul>
-                    <li><a href="https://wa.me/966568747441">+966 56 874 7441</a></li>
+                    <li><a href="https://wa.me/966568747441" style="color:black;">+966 568 747 441</a></li>
                 </ul>
             </ul>
+            <div class="contact-assistance">
+                <i class="fas fa-phone"></i> For any assistance regarding the website<br>
+                Please contact us at:<br>
+                <a href="https://wa.me/966505363332" style="color: black;">+966 505 363 332</a> or <a href="https://wa.me/966554144698" style="color: black;">+966 554 144 698</a>.
+            </div>
         </div>
         <div style="flex-basis: 100%; height: 0;"></div>
         <div class="website-overview">
