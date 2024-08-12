@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-  <title>QKSA</title>
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!--CSS -->
+  <title>QKSA</title>
+  <!-- CSS -->
   <link rel="stylesheet" href="Style.css">
   <link rel="stylesheet" href="Dropdown.css">
   <link rel="stylesheet" href="search.css">
+  <link rel="stylesheet" href="chat-call.css">
+
   <style>
     body {
       background-color: #F4EEE2;
@@ -71,36 +73,6 @@
       margin-top: 250px; /* Adjust this value based on the height of your background image */
     }
 
-    /* نمط زر فتح المحادثة */
-    #chatbot-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background-color: #0084ff;
-      border-radius: 50%;
-      color: white;
-      text-align: center;
-      line-height: 60px;
-      font-size: 24px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    /* نمط صندوق المحادثة */
-    #chatbot-container {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      width: 60px;
-      height: 100px;
-      border: 1px solid #ccc;
-      background: white;
-      display: none;
-      z-index: 1000;
-    }
-
     .centered-content {
       width: 100%;
       max-width: 600px; /* نفس عرض صندوق البحث */
@@ -138,7 +110,7 @@
     
     .advertisement-location:hover {
       text-decoration: underline;
-    }
+    } 
 
   </style>
 </head>
@@ -172,7 +144,6 @@
 
   <div id="searchContent" class="search-content">
     <ol id="search-list">
-      <!-- سيتم إضافة الإعلانات هنا ديناميكيا بواسطة جافا سكريبت -->
     </ol>
   </div>
 
@@ -182,7 +153,7 @@
     </div>
     <h2 class="advertisements-title"  style="margin-left: 60px;">Advertisements</h2>
     <div class="dropdown-container">
-      <!-- سيتم إضافة الإعلانات هنا ديناميكيا بواسطة جافا سكريبت -->
+      <!-- هنا ستظهر القائمة المنسدلة -->
     </div>
   </div>
 
@@ -191,13 +162,21 @@
   <!-- صندوق المحادثة -->
   <div id="chatbot-container"></div>
 
+  <!--  أزرار المكالمات والمحادثة-->
+  <div class="chat-call-buttons">
+    <a href="https://trial.cognigy.ai/project/662f36bc9ea2a29610672c18/662f36bd3b788c54c34d0396/flow/662f373236dbe0341609edbf/chart" target="_blank" class="call-button">
+      <i class="fas fa-phone"></i>
+    </a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
   <script src="Dropdown.js"></script>
   <script src="https://github.com/Cognigy/WebchatWidget/releases/download/v3.0.0-beta.30/webchat.js"></script>
 
   <script>
-    // جلب البيانات من ملف JSON المحلي وإضافتها إلى القوائم المنسدلة
+    // جلب البيانات من الـ API وإضافتها إلى القوائم المنسدلة
     document.addEventListener('DOMContentLoaded', function() {
-      fetch('restaurants.json')
+      fetch('https://qksa-api-dynamic-experience-test.apps.esale-dev.prod.mobily.lan/restaurants')
         .then(response => response.json())
         .then(advertisements => {
           window.advertisements = advertisements; // حفظ البيانات لتسهيل الوصول إليها في وظيفة البحث
@@ -227,7 +206,7 @@
               // تحديد لغة النص
               var nameClass = ad.name.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
               var descriptionClass = ad.description.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
-              var locationText = ad.name.match(/[\u0600-\u06FF]/) ? 'تجد الموقع عن النقر هنا' : 'Find the location by clicking here';
+              var locationText = ad.name.match(/[\u0600-\u06FF]/) ? 'تجد الموقع عند النقر هنا' : 'Find the location by clicking here';
 
               // Add new advertisement
               var dropdown = document.createElement('div');
@@ -280,7 +259,7 @@
         // تحديد لغة النص
         var nameClass = ad.name.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
         var descriptionClass = ad.description.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
-        var locationText = ad.name.match(/[\u0600-\u06FF]/) ? 'تجد الموقع عن النقر هنا' : 'Find the location by clicking here';
+        var locationText = ad.name.match(/[\u0600-\u06FF]/) ? 'تجد الموقع عند النقر هنا' : 'Find the location by clicking here';
 
         dropdown.innerHTML = `
           <button class="dropdown-btn" onclick="toggleDropdown(${ad.id})" style="color: black;">${ad.name}</button>
@@ -314,7 +293,7 @@
           // تحديد لغة النص
           var nameClass = ad.name.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
           var descriptionClass = ad.description.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
-          var locationText = ad.name.match(/[\u0600-\u06FF]/) ? 'تجد الموقع عن النقر هنا' : 'Find the location by clicking here';
+          var locationText = ad.name.match(/[\u0600-\u06FF]/) ? 'تجد الموقع عند النقر هنا' : 'Find the location by clicking here';
 
           dropdown.innerHTML = `
             <button class="dropdown-btn" onclick="toggleDropdown(${ad.id})" style="color: black;">${ad.name}</button>
@@ -348,7 +327,8 @@
             // Other settings like greeting message
             // greeting: "Hello! How can I assist you today?"
         }
-    }).then(function(webchat) {
+    })
+    .then(function(webchat) {
         // Embedding the webchat in a specific HTML element
         webchat.render(document.getElementById("chatbot-container"));
     });

@@ -1,0 +1,93 @@
+.about-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 50px;
+    padding: 20px;
+    background-color: #F4EEE2;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-section div {
+    flex: 1 1 300px; /* Adjust the minimum width as needed */
+    margin: 10px;
+}
+
+.about-section h2, .about-section p, .about-section ul {
+    margin: 10px 0;
+}
+
+.about-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-section ul li {
+    margin-bottom: 10px;
+}
+
+.about-section ul li::before {
+    content: "";
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info ul li {
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    color: #000;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-info i {
+    margin-right: 5px;
+}
+
+.about-text {
+    font-size: 1.1em;
+    line-height: 1.6em;
+    text-align: justify;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-title i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.website-overview {
+    margin-right: 50px; /* Adjust this value to move the section to the right */
+}
+
+.website-overview ul {
+    list-style: none;
+    padding: 0;
+}
+
+.website-overview ul li {
+    margin-bottom: 10px;
+}
+
+.website-overview ul ul {
+    margin-left: 20px;
+    list-style-type: disc;
+}

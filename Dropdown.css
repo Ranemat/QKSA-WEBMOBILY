@@ -11,7 +11,7 @@
 }
 
 .dropdown-btn {
-  color: white;
+  color: black; /* تم تغيير اللون إلى الأسود */
   padding: 10px;
   font-size: 17px; /* تكبير حجم النص */
   font-weight: bolder;
@@ -60,6 +60,7 @@
 .text-right a {
   float: left;
 }
+
 /* النصوص باللغة العربية */
 .arabic-text {
   direction: rtl;
@@ -73,7 +74,6 @@
   text-align: left;
   margin-left: 10px; /* إضافة هامش من اليسار */
 }
-
 
 /* الروابط باللغة العربية */
 .arabic-link {
@@ -97,3 +97,23 @@
   left: 50px; /* Adjust this value to move the list closer to the image */
 }
 
+#search-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+}
+
+#search-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+#search-list li:hover {
+  background-color: #f1f1f1;
+}

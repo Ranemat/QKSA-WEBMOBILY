@@ -1,223 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-  <title>QKSA</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QKSA</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="about-us.css">
+    <link rel="stylesheet" href="chat-call.css">
 
-  <!--CSS -->
-  <link rel="stylesheet" href="Style.css">
-  <link rel="stylesheet" href="Dropdown.css">
-  <link rel="stylesheet" href="search.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #F4EEE2;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        .header {
+            text-align: center;
+            position: relative;
+        }
 
-  <style>
-    body {
-      background-color: #F4EEE2;
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      background-attachment: fixed;
-      overflow-x: hidden;
-    }
-
-    .header {
-      text-align: center;
-      position: relative;
-    }
-
-
-    .about-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin: 50px;
-      padding: 20px;
-      background-color: #F4EEE2;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .about-section div {
-      flex: 1 1 300px; /* Adjust the minimum width as needed */
-      margin: 10px;
-    }
-
-    .about-section h2, .about-section p, .about-section ul {
-      margin: 10px 0;
-    }
-
-    .about-section ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .about-section ul li {
-      margin-bottom: 10px;
-    }
-
-    .about-section ul li::before {
-      content: "";
-    }
-
-    .contact-info {
-      margin-top: 20px;
-    }
-
-    .contact-info ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .contact-info ul li {
-      margin-bottom: 10px;
-    }
-
-    .contact-info a {
-      color: #000;
-      text-decoration: none;
-    }
-
-    .contact-info a:hover {
-      text-decoration: underline;
-    }
-
-    .contact-info i {
-      margin-right: 5px;
-    }
-
-    .about-text {
-      font-size: 1.1em;
-      line-height: 1.6em;
-      text-align: justify;
-    }
-
-    .section-title {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .section-title i {
-      margin-right: 10px;
-      font-size: 1.2em;
-    }
-
-    .website-overview {
-      margin-right: 50px; /* Adjust this value to move the section to the right */
-    }
-
-    .website-overview ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .website-overview ul li {
-      margin-bottom: 10px;
-    }
-
-    .website-overview ul ul {
-      margin-left: 20px;
-      list-style-type: disc;
-    }
-  </style>
+    </style>
 </head>
 <body>
-  <header class="header">
-    <img src="Background.jpg" alt="Background Image" class="background-image">
-    <div class="container">
-      <nav class="navbar">
-        <ul class="nav-list">
-          <li><a href="Mobily-AD.html">Home</a></li>
-          <li><a href="About-us.html">About us</a></li>
-          <li><a href="Portfolio.html">Portfolio</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="logo-container">
-      <img class="Logo" src="Logo.png" alt="Logo">
-      <br>
-      <p class="text"><em>QKSA!</em></p>
-    </div>
-  </header>
-  <br>
+    <header class="header">
+        <img src="Background.jpg" alt="Background Image" class="background-image">
+        <div class="container">
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li><a href="Mobily-AD.html">Home</a></li>
+                    <li><a href="About-us.html">About us</a></li>
+                    <li><a href="Portfolio.html">Portfolio</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="logo-container">
+            <img class="Logo" src="Logo.png" alt="Logo">
+            <br>
+            <p class="text"><em>QKSA!</em></p>
+        </div>
+    </header>
+    <br>
 
-  <div class="about-section">
-    <div>
-      <h2 class="section-title"><i class="fas fa-info-circle"></i> About Us</h2>
-      <p class="about-text">We are a dedicated team of trainees passionate about technology and helping people. Our mission is to create innovative solutions that make everyday tasks easier and more enjoyable. This project aims to help people find their dining needs quickly and efficiently. Our diverse skills in web development and user experience design ensure the platform is functional, user-friendly, and visually appealing. We strive to make finding the perfect restaurant or café an effortless and enjoyable experience.</p>
+    <div class="about-section">
+        <div>
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> About Us</h2>
+            <p class="about-text">We are a dedicated team of trainees passionate about technology and helping people. Our mission is to create innovative solutions that make everyday tasks easier and more enjoyable. This project aims to help people find their dining needs quickly and efficiently. Our diverse skills in web development and user experience design ensure the platform is functional, user-friendly, and visually appealing. We strive to make finding the perfect restaurant or café an effortless and enjoyable experience.</p>
+        </div>
+        <div class="contact-info">
+            <h2 class="section-title"><i class="fas fa-address-book"></i> Contact Info</h2>
+            <ul>
+                <li><i class="fas fa-envelope"></i> Email:</li>
+                <ul>
+                    <li><a href="mailto:qksa2024@gmail.com">qksa2024@gmail.com</a></li><br>
+                    <li><a href="mailto:Raneemaltwijri@gmail.com">Raneemaltwijri@gmail.com</a></li><br>
+                    <li><a href="mailto:Fahdahabdulmohsen@gmail.com">Fahdahabdulmohsen@gmail.com</a></li>
+                </ul>
+                <li><i class="fas fa-phone"></i> Phone Number:</li>
+                <ul>
+                    <li><a href="https://wa.me/966568747441">+966 56 874 7441</a></li>
+                </ul>
+            </ul>
+        </div>
+        <div style="flex-basis: 100%; height: 0;"></div>
+        <div class="website-overview">
+            <h2 class="section-title"><i class="fas fa-globe"></i> Website Overview</h2>
+            <ul>
+                <li><strong>Discover Restaurants and Cafes</strong>
+                    <ul>
+                        <li>Our website helps you find the perfect restaurant or café to match your preferences.</li><br>
+                        <li>Use the search bar to quickly locate dining options.</li>
+                    </ul>
+                </li><br>
+                <li><strong>Search Functionality</strong>
+                    <ul>
+                        <li>Easily search for cafes or restaurants.</li><br>
+                        <li>Get tailored results based on your search criteria and location.</li>
+                    </ul>
+                </li><br>
+                <li><strong>Chatbot Assistance</strong>
+                    <ul>
+                        <li>Interact with our chatbot for personalized recommendations.</li><br>
+                        <li>Get quick suggestions for restaurants or cafes that fit your needs.</li>
+                    </ul>
+                </li><br>
+                <li><strong>Direct Navigation</strong>
+                    <ul>
+                        <li>Click on the restaurant or café button to be taken directly to its location on Google Maps.</li><br>
+                        <li>Conveniently find the exact spot you're looking for.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="contact-info">
-      <h2 class="section-title"><i class="fas fa-address-book"></i> Contact Info</h2>
-      <ul>
-        <li><i class="fas fa-envelope"></i> Email:</li>
-        <ul>
-          <li><a href="mailto:qksa2024@gmail.com">qksa2024@gmail.com</a></li><br>
-          <li><a href="mailto:Raneemaltwijri@gmail.com">Raneemaltwijri@gmail.com</a></li><br>
-          <li><a href="mailto:Fahdahabdulmohsen@gmail.com">Fahdahabdulmohsen@gmail.com</a></li>
-        </ul>
-        <li><i class="fas fa-phone"></i> Phone Number:</li>
-        <ul>
-          <li><a href="https://wa.me/966568747441">+966 56 874 7441</a></li>
-        </ul>
-      </ul>
-    </div>
-    <div style="flex-basis: 100%; height: 0;"></div>
-    <div class="website-overview">
-      <h2 class="section-title"><i class="fas fa-globe"></i> Website Overview</h2>
-      <ul>
-        <li><strong>Discover Restaurants and Cafes</strong>
-          <ul>
-            <li>Our website helps you find the perfect restaurant or café to match your preferences.</li><br>
-            <li>Use the search bar to quickly locate dining options.</li>
-          </ul>
-        </li><br>
-        <li><strong>Search Functionality</strong>
-          <ul>
-            <li>Easily search for cafes or restaurants.</li><br>
-            <li>Get tailored results based on your search criteria and location.</li>
-          </ul>
-        </li><br>
-        <li><strong>Chatbot Assistance</strong>
-          <ul>
-            <li>Interact with our chatbot for personalized recommendations.</li><br>
-            <li>Get quick suggestions for restaurants or cafes that fit your needs.</li>
-          </ul>
-        </li><br>
-        <li><strong>Direct Navigation</strong>
-          <ul>
-            <li>Click on the restaurant or café button to be taken directly to its location on Google Maps.</li><br>
-            <li>Conveniently find the exact spot you're looking for.</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
 
-  <script src="https://github.com/Cognigy/WebchatWidget/releases/download/v3.0.0-beta.30/webchat.js"></script>
-  <script>
-    // Cognigy Webchat Widget
-    initWebchat("https://endpoint-app.cognigy.ai/1e2e81c29d60234b4240dda4f08cad73dc74f407af5d37678ddbdd5a69b2afca", {
-      // Configuration options
-      style: {
-        // Custom styles for the chat widget
-        width: '200px',
-        height: '400px'
-      },
-      settings: {
-        // Other settings like greeting message
-        // greeting: "Hello! How can I assist you today?"
-      }
-    }).then(function(webchat) {
-      // Embedding the webchat in a specific HTML element
-      webchat.render(document.getElementById("chatbot-container"));
-    });
-  </script>
+    <!-- Buttons for Webchat and Call -->
+    <div class="chat-call-buttons">
+        <a href="https://trial.cognigy.ai/project/662f36bc9ea2a29610672c18/662f36bd3b788c54c34d0396/flow/662f373236dbe0341609edbf/chart" target="_blank" class="call-button">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
 
-  <div class="spacer"></div>
-  <footer class="footer">
-    <p class="centered-text">Mobily2024 - CC Trainees</p>
-  </footer>
+    <!-- Cognigy Webchat Widget -->
+    <script src="https://github.com/Cognigy/WebchatWidget/releases/download/v3.0.0-beta.30/webchat.js"></script>
+    <script>
+        // Cognigy Webchat Widget
+        initWebchat("https://endpoint-app.cognigy.ai/1e2e81c29d60234b4240dda4f08cad73dc74f407af5d37678ddbdd5a69b2afca", {
+            // Configuration options
+            style: {
+                // Custom styles for the chat widget
+                width: '200px',
+                height: '400px'
+            },
+            settings: {
+                // Other settings like greeting message
+                // greeting: "Hello! How can I assist you today?"
+            }
+        }).then(function(webchat) {
+            // Embedding the webchat in a specific HTML element
+            webchat.render(document.getElementById("chatbot-container"));
+        });
+    </script>
+
+    <div class="spacer"></div>
+    <footer class="footer">
+        <p class="centered-text">Mobily2024 - CC Trainees</p>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,29 @@
+
+.call-button {
+    background-color: #25D366; /* لون الخلفية */
+    color: white; /* لون النص */
+    border-radius: 50%; /* يجعل الزر دائري الشكل */
+    width: 35px; /* عرض الزر */
+    height: 35px; /* ارتفاع الزر */
+    display: flex; /* يستخدم لجعل الأيقونة تتوسط الزر */
+    align-items: center; /* يستخدم لجعل الأيقونة تتوسط الزر عمودياً */
+    justify-content: center; /* يستخدم لجعل الأيقونة تتوسط الزر أفقياً */
+    font-size: 15px; /* حجم الأيقونة داخل الزر */
+    cursor: pointer; /* يغير مؤشر الفأرة إلى اليد عند التحويم */
+    text-decoration: none; /* يزيل التسطير الذي يظهر عادةً تحت الروابط */
+    position: fixed;
+    bottom: 20px;
+    right: 75px; /* تعديل موضع الزر ليكون بجانب الزر الآخر */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .chat-call-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+   
