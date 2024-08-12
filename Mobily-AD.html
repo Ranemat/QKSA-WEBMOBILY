@@ -176,7 +176,7 @@
   <script>
     // جلب البيانات من الـ API وإضافتها إلى القوائم المنسدلة
     document.addEventListener('DOMContentLoaded', function() {
-      fetch('https://qksa-api-dynamic-experience-test.apps.esale-dev.prod.mobily.lan/restaurants')
+      fetch('https://raw.githubusercontent.com/Ranemat/rest-api/main/rest.json')
         .then(response => response.json())
         .then(advertisements => {
           window.advertisements = advertisements; // حفظ البيانات لتسهيل الوصول إليها في وظيفة البحث
