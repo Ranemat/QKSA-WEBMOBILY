@@ -151,7 +151,7 @@
     <div class="image-container">
       <img class="Coffee" src="Coffee.png" alt="Coffee img">
     </div>
-    <h2 class="advertisements-title"  style="margin-left: 60px;">Advertisements</h2>
+    <h2 class="advertisements-title" style="margin-left: 60px;">Advertisements</h2>
     <div class="dropdown-container">
       <!-- هنا ستظهر القائمة المنسدلة -->
     </div>
@@ -185,7 +185,7 @@
           var advertisementList = document.querySelector('.dropdown-container');
 
           advertisements.forEach(function(ad) {
-            // Add to search list
+            // إضافة إلى قائمة البحث
             var li = document.createElement('li');
             li.className = 'search-result';
             var a = document.createElement('a');
@@ -200,39 +200,32 @@
             }
 
             a.onclick = function() {
-              // Clear previous advertisement
-              advertisementList.innerHTML = '';
-
-              // تحديد لغة النص
-              var nameClass = ad.name.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
-              var descriptionClass = ad.description.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
-              var locationText = ad.name.match(/[\u0600-\u06FF]/) ? 'تجد الموقع عند النقر هنا' : 'Find the location by clicking here';
-
-              // Add new advertisement
-              var dropdown = document.createElement('div');
-              dropdown.className = 'dropdown';
-
-              dropdown.innerHTML = `
-                <button class="dropdown-btn" onclick="toggleDropdown(${ad.id})" style="color: black;">${ad.name}</button>
-                <div id="dropdown-content-${ad.id}" class="dropdown-content">
-                  <p class="${nameClass}" style="font-weight: bolder; color: brown;">${ad.name}</p>
-                  <p class="${descriptionClass} Description" style="color: brown;">${ad.description}</p>
-                  <p class="${descriptionClass}">
-                    <a href="${ad.location}" style="text-decoration: underline; color: blue;">${locationText}</a>
-                  </p>
-                </div>
-              `;
-              advertisementList.appendChild(dropdown);
-
-              // إخفاء قائمة البحث عند النقر على نتيجة
-              document.getElementById('searchContent').style.display = 'none';
+              // إظهار القائمة المنسدلة للمطعم المحدد
+              toggleDropdown(ad.id);
             };
             li.appendChild(a);
             adList.appendChild(li);
-          });
 
-          // تحديث العناصر الموجودة بالفعل في القائمة
-          updateAdvertisementList(advertisements);
+            // إضافة القائمة المنسدلة
+            var dropdown = document.createElement('div');
+            dropdown.className = 'dropdown';
+
+            var nameClass = ad.name.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
+            var descriptionClass = ad.description.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
+            var locationText = ad.name.match(/[\u0600-\u06FF]/) ? 'تجد الموقع عند النقر هنا' : 'Find the location by clicking here';
+
+            dropdown.innerHTML = `
+              <button class="dropdown-btn" onclick="toggleDropdown(${ad.id})" style="color: black;">${ad.name}</button>
+              <div id="dropdown-content-${ad.id}" class="dropdown-content">
+                <p class="${nameClass}" style="font-weight: bolder; color: brown;">${ad.name}</p>
+                <p class="${descriptionClass} Description" style="color: brown;">${ad.description}</p>
+                <p class="${descriptionClass}">
+                  <a href="${ad.location}" style="text-decoration: underline; color: blue;">${locationText}</a>
+                </p>
+              </div>
+            `;
+            advertisementList.appendChild(dropdown);
+          });
         });
 
       searchForm.addEventListener('click', function() {
@@ -247,33 +240,6 @@
         }
       });
     });
-
-    function updateAdvertisementList(advertisements) {
-      var advertisementList = document.querySelector('.dropdown-container');
-      advertisementList.innerHTML = '';
-
-      advertisements.forEach(function(ad) {
-        var dropdown = document.createElement('div');
-        dropdown.className = 'dropdown';
-
-        // تحديد لغة النص
-        var nameClass = ad.name.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
-        var descriptionClass = ad.description.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
-        var locationText = ad.name.match(/[\u0600-\u06FF]/) ? 'تجد الموقع عند النقر هنا' : 'Find the location by clicking here';
-
-        dropdown.innerHTML = `
-          <button class="dropdown-btn" onclick="toggleDropdown(${ad.id})" style="color: black;">${ad.name}</button>
-          <div id="dropdown-content-${ad.id}" class="dropdown-content">
-            <p class="${nameClass}" style="font-weight: bolder; color: brown;">${ad.name}</p>
-            <p class="${descriptionClass} Description" style="color: brown;">${ad.description}</p>
-            <p class="${descriptionClass}">
-              <a href="${ad.location}" style="text-decoration: underline; color: blue;">${locationText}</a>
-            </p>
-          </div>
-        `;
-        advertisementList.appendChild(dropdown);
-      });
-    }
 
     function searchFunction() {
       filterSearchResults();
@@ -290,7 +256,6 @@
           var dropdown = document.createElement('div');
           dropdown.className = 'dropdown';
 
-          // تحديد لغة النص
           var nameClass = ad.name.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
           var descriptionClass = ad.description.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
           var locationText = ad.name.match(/[\u0600-\u06FF]/) ? 'تجد الموقع عند النقر هنا' : 'Find the location by clicking here';

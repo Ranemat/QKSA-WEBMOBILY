@@ -15,6 +15,7 @@ function toggleDropdown(dropdownId) {
         console.error('Dropdown content not found for ID:', dropdownId);
     }
 }
+
 /*
 // جلب البيانات من API على OpenShift وإضافتها إلى القوائم المنسدلة
 document.addEventListener('DOMContentLoaded', (event) => {
