@@ -55,14 +55,32 @@
     }
 
     .background-image {
-      width: 100%; /* Adjust the width as needed */
-      height: auto;
-      position: absolute;
-      top: 100px; /* Adjust this value to move the image down */
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: -1;
+    width: 100%; /* Adjust the width to fit the container */
+    height: auto;
+    position: absolute;
+    top: 100px; /* Adjust this value to move the image down */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+/* تطبيق الإعدادات عند استخدام الهاتف */
+@media only screen and (max-width: 768px) {
+    .container {
+        margin-top: 150px; /* Adjust the margin top for mobile screens */
     }
+    
+    .background-image {
+    width: 100%; /* Adjust the width to fit the container */
+    height: auto;
+    position: absolute;
+    top: 100px; /* Adjust this value to move the image down */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+}
+
 
     .container, .logo-container, #searchForm {
       position: relative;

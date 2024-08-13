@@ -81,7 +81,22 @@ ul li a:hover {
   padding: 10px;
 }
 
+.background {
+  max-width: 100%;
+  height: auto;
+  position: fixed;
+}
 
+/* styles.css */
+.header img.background-image {
+  width: 50%; /* Adjust the width as needed */
+  height: auto;
+  position: absolute;
+  top: 100px; /* Adjust this value to move the image down */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
 
 .centered-text {
   text-align: center;
@@ -106,50 +121,53 @@ ul li a:hover {
     top: 50%; /* تضمن أن تكون الصورة تحت القائمة المنسدلة */
     left: 0; /* أو أي موقع آخر يناسب تصميمك */
   }
-}
 
-.background {
-  max-width: 100%;
-  height: auto;
-  position: fixed;
-}
+  .Logo {
+      width: 60px; /* تعديل حجم الشعار */
+      height: 60px;
+  }
 
-/* styles.css */
-.header img.background-image {
-  width: 50%; /* Adjust the width as needed */
-  height: auto;
-  position: absolute;
-  top: 100px; /* Adjust this value to move the image down */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
-}
+  .text {
+      margin-left: 60px;
+      font-size: 14px; /* تعديل حجم النص بجانب الشعار */
+  }
 
-  /* تطبيق التنسيقات المتجاوبة على أجهزة الجوال */
-  @media only screen and (max-width: 600px) {
-    .navbar {
+  .navbar {
       display: flex;
-      padding: 40px;
-    }
-    
-    .nav-list {
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 10px;
+      margin-top: -260px; /* رفع القائمة للأعلى لتكون بمحاذاة الشعار */
+  }
+
+  .nav-list {
       list-style-type: none;
       margin: 0;
       padding: 0;
-      justify-content: flex-start;
-      padding: 10px;
-      flex-grow: 1;
-      text-align: right;
-    }
-    
-    .nav-list li {
-      margin-bottom: 10px;
-    }
-    
-    .nav-list li a {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+  }
+
+  .nav-list li {
+      margin: 0 5px; /* تقليل المسافة بين العناصر */
+  }
+
+  .nav-list li a {
       color: #333;
       text-decoration: none;
-      padding: 10px;
+      font-size: 13px; /* تقليل حجم الخط */
+      padding: 5px 8px;
       display: block;
-    }
   }
+
+  .header img.background-image {
+    width: 100%; /* Adjust the width as needed */
+    height: auto;
+    position: absolute;
+    top: 100px; /* Adjust this value to move the image down */
+    left: 60%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+}
