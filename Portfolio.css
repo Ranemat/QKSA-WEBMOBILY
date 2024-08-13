@@ -1,0 +1,87 @@
+body {
+    background-color: #F4EEE2;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+
+  .header {
+    text-align: center;
+    position: relative;
+  }
+
+  .presentation-container {
+    text-align: center;
+    margin: 50px auto; /* Add auto margins to center the container */
+    max-width: 1200px; /* Optional: set a max width for the container */
+  }
+
+  .presentation-container iframe {
+    width: 100%; /* Adjust to 100% to fit within the container */
+    height: 600px; /* Adjust the height as needed */
+    border: none;
+  }
+  
+/* القاعدة للجوال */
+@media only screen and (max-width: 768px) {
+  .Logo {
+      width: 60px; /* تعديل حجم الشعار */
+      height: 60px;
+  }
+
+  .text {
+      margin-left: 60px;
+      font-size: 14px; /* تعديل حجم النص بجانب الشعار */
+  }
+
+  .navbar {
+      display: flex;
+      justify-content: center; /* تغيير المحاذاة لتكون القائمة في المنتصف */
+      align-items: center;
+      padding-right: 10px;
+      margin-top: 10px; /* رفع القائمة للأعلى لتكون بمحاذاة الشعار */
+  }
+
+  .nav-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* تغيير المحاذاة لتكون القائمة في المنتصف */
+  }
+
+  .nav-list li {
+      margin: 0 5px; /* تقليل المسافة بين العناصر */
+  }
+
+  .nav-list li a {
+      color: #333;
+      text-decoration: none;
+      font-size: 13px; /* تقليل حجم الخط */
+      padding: 5px 8px;
+      display: block;
+  }
+
+  .about-section {
+      font-size: 14px; /* تصغير حجم النصوص */
+      padding: 10px;
+  }
+
+  .section-title {
+      font-size: 18px; /* تعديل حجم عنوان الأقسام */
+  }
+
+  .about-text {
+      font-size: 14px; /* تصغير حجم نص "About Us" */
+  }
+
+  .contact-info {
+      font-size: 14px; /* تصغير حجم نص "Contact Info" */
+  }
+
+  .contact-assistance {
+      font-size: 14px; /* تصغير حجم نص المساعدة */
+  }
+}

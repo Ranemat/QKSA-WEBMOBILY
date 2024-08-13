@@ -170,4 +170,14 @@ ul li a:hover {
     transform: translateX(-50%);
     z-index: -1;
   }
+  .size img.Coffee {
+    width: 250px; /* تصغير عرض الصورة */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 20px; /* ضبط المسافة بين القائمة والصورة */
+    left: 20px; /* نقل الصورة قليلاً نحو اليمين */
+    transform: translateX(10%); /* تعديل موضع الصورة نحو اليمين */
+}
 }
