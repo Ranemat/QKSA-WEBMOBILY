@@ -133,14 +133,15 @@
     </div>
   </header>
   <br>
-
+  
   <form id="searchForm">
     <div id="search-container">
       <input type="text" id="searchInput" class="search-box" onkeyup="searchFunction()" placeholder="Search for names.." title="Type in a name">
-      <button type="button" id="clearButton" onclick="clearSearchBox()">Clear</button>
+      <span id="clearButton" onclick="clearSearchBox()">&#x2715;</span> <!-- زر X -->
     </div>
     <br>
   </form>
+  
 
   <div id="searchContent" class="search-content">
     <ol id="search-list">
