@@ -126,10 +126,15 @@
   }
 
   .image-container {
-    width: 100%;
+    width: 30%;
     margin: 20px auto;
     float: none;
     display: block;
     text-align: center;
+  }
+
+  .Coffee {
+    width: 20%; /* تقليل عرض الصورة نفسها */
+    height: auto; /* الحفاظ على النسبة بين العرض والارتفاع */
   }
 }
