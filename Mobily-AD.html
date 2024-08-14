@@ -293,11 +293,36 @@
         }
       });
     }
-
     function clearSearchBox() {
-      document.getElementById('searchInput').value = '';
-      document.getElementById('search-list').style.display = 'none';
-    }
+    document.getElementById('searchInput').value = '';
+    document.getElementById('search-list').style.display = 'none';
+
+    // عرض جميع الإعلانات عند مسح صندوق البحث
+    var advertisementList = document.querySelector('.dropdown-container');
+    advertisementList.innerHTML = '';
+
+    window.advertisements.forEach(function(ad) {
+        var dropdown = document.createElement('div');
+        dropdown.className = 'dropdown';
+
+        var nameClass = ad.name.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
+        var descriptionClass = ad.description.match(/[\u0600-\u06FF]/) ? 'arabic-text' : 'english-text';
+        var locationText = ad.name.match(/[\u0600-\u06FF]/) ? 'تجد الموقع عند النقر هنا' : 'Find the location by clicking here';
+
+        dropdown.innerHTML = `
+            <button class="dropdown-btn" onclick="toggleDropdown(${ad.id})" style="color: black;">${ad.name}</button>
+            <div id="dropdown-content-${ad.id}" class="dropdown-content">
+                <p class="${nameClass}" style="font-weight: bolder; color: brown;">${ad.name}</p>
+                <p class="${descriptionClass} Description" style="color: brown;">${ad.description}</p>
+                <p class="${descriptionClass}">
+                    <a href="${ad.location}" style="text-decoration: underline; color: blue;">${locationText}</a>
+                </p>
+            </div>
+        `;
+        advertisementList.appendChild(dropdown);
+    });
+}
+
 
     // Cognigy Webchat Widget
     initWebchat("https://endpoint-app.cognigy.ai/1e2e81c29d60234b4240dda4f08cad73dc74f407af5d37678ddbdd5a69b2afca", {
