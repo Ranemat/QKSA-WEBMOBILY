@@ -10,7 +10,7 @@
   background-size: 250px 550px;
   float: left; /* اجعل القائمة تظهر على الجهة اليسرى */
 }
-
+/* تعديل زر القائمة المنسدلة لإظهار الأيقونات "+" و "-" */
 .dropdown-btn {
   color: black;
   padding: 10px;
@@ -19,7 +19,6 @@
   text-align: left;
   border: none;
   cursor: pointer;
-  background-image: url("downArrow.png");
   background-repeat: no-repeat;
   background-position: right;
   width: 600px;
@@ -28,6 +27,18 @@
   border-bottom: 3px solid black;
   margin-left: 20px;
 }
+
+.dropdown-btn::after {
+  content: "+";
+  font-size: 18px;
+  float: right;
+  margin-right: 10px;
+}
+
+.dropdown-btn.active::after {
+  content: "-";
+}
+
 
 .dropdown-content {
   display: none;
