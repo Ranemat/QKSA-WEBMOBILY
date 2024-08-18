@@ -1,23 +1,29 @@
 /* Css search */
+#search-container {
+  position: relative;
+  width: 40%; /* العرض الأصلي لصندوق البحث */
+  margin: 0 auto; /* لتمركز صندوق البحث */
+}
+
 #searchInput {
   background-image: url('search.png');
   background-position: 10px 12px;
   background-repeat: no-repeat;
-  width: 30%; /* العرض الأصلي */
+  width: 100%; /* العرض الأصلي */
   font-size: 16px;
-  padding: 12px 40px 12px 40px; /* تعديل padding لإفساح المجال لزر X */
+  padding: 12px 20px 12px 40px; /* ضبط الـ padding */
   border: 1px solid #ddd;
   margin-top: 50px;
   display: inline-block;
   vertical-align: middle;
-  position: relative;
   box-sizing: border-box; /* لضمان أن padding لا يؤثر على حجم الصندوق */
+  height: 40px; /* تكبير طول صندوق البحث */
 }
 
 #clearButton {
   position: absolute;
-  right: 450px; /* ضبط موضع الزر من الجهة اليمنى */
-  top: 55%; /* ضبط موضع الزر عمودياً */
+  right: 10px; /* ضبط موضع الزر من الجهة اليمنى */
+  top: 60%;
   transform: translateY(-50%);
   cursor: pointer;
   font-size: 18px;
@@ -87,24 +93,21 @@ input[type="text"] {
 
 /* استعلامات الوسائط لتصغير صندوق البحث على الهواتف */
 @media only screen and (max-width: 768px) {
+  #search-container {
+    width: 90%; /* توسيع الحاوية لتناسب الشاشة الصغيرة */
+  }
+
   #searchInput {
-    width: 80%;
+    width: 100%; /* جعل عرض صندوق البحث كامل الحاوية */
     font-size: 14px;
     padding: 10px 40px 10px 35px;
     margin-top: 30px;
-    display: inline-block;
-    vertical-align: middle;
-    position: relative;
   }
 
   #clearButton {
-    right: 45px; /* تقليل المسافة من الجهة اليمنى في الهواتف */
-    top: 45%;
+    right: 15px; /* تقليل المسافة من الجهة اليمنى في الهواتف */
+    top: 55%; /* تحريك الزر للأسفل قليلاً */
     transform: translateY(-50%);
     font-size: 18px;
-  }
-
-  #search-container {
-    flex-direction: row;
   }
 }
