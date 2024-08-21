@@ -10,126 +10,6 @@
   <link rel="stylesheet" href="Dropdown.css">
   <link rel="stylesheet" href="search.css">
   <link rel="stylesheet" href="chat-call.css">
-
-  <style>
-    body {
-      background-color: #F4EEE2;
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      background-attachment: fixed;
-      overflow-x: hidden;
-    }
-
-    .advertisement-title {
-      color: #8B0000; /* أحمر غامق */
-      font-weight: bold;
-      font-size: 1.5em;
-    }
-
-    .advertisement-description {
-      color: #8B0000; /* أحمر غامق */
-      font-size: 1.2em;
-      word-wrap: break-word;
-      max-width: 600px; /* تعديل العرض حسب الحاجة */
-    }
-
-    .advertisement-location {
-      color: #0000EE; /* أزرق */
-      text-decoration: underline;
-    }
-
-    /* تكبير حجم أسماء المطاعم في قائمة الإعلانات */
-    #advertisement-list li h3 {
-      font-size: 2em; /* حجم الخط الجديد */
-    }
-
-    .Coffee {
-      float: right;
-      width: 400px;
-      height: 400px;
-    }
-
-    .header {
-      text-align: center;
-      position: relative;
-    }
-
-    .background-image {
-      width: 100%; /* Adjust the width to fit the container */
-      height: auto;
-      position: absolute;
-      top: 100px; /* Adjust this value to move the image down */
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: -1;
-    }
-
-    /* تطبيق الإعدادات عند استخدام الهاتف */
-    @media only screen and (max-width: 768px) {
-      .container {
-        margin-top: 150px; /* Adjust the margin top for mobile screens */
-      }
-
-      .background-image {
-        width: 100%; /* Adjust the width to fit the container */
-        height: auto;
-        position: absolute;
-        top: 100px; /* Adjust this value to move the image down */
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -1;
-      }
-    }
-
-    .container, .logo-container, #searchForm {
-      position: relative;
-      z-index: 1;
-    }
-
-    #searchForm {
-      margin-top: 250px; /* Adjust this value based on the height of your background image */
-    }
-
-    .centered-content {
-      width: 100%;
-      max-width: 600px; /* نفس عرض صندوق البحث */
-      margin: 20px auto;
-      padding: 15px;
-      background-color: #ffffff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-    }
-
-    .rtl {
-      text-align: right;
-      direction: rtl;
-    }
-
-    .ltr {
-      text-align: left;
-      direction: ltr;
-    }
-
-    .advertisement-title {
-      margin-bottom: 10px;
-    }
-
-    .advertisement-description {
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
-
-    .advertisement-location {
-      color: #007BFF;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .advertisement-location:hover {
-      text-decoration: underline;
-    } 
-
-  </style>
 </head>
 <body>
   <header class="header">
@@ -193,9 +73,29 @@
   <script>
     // جلب البيانات من الـ API وإضافتها إلى القوائم المنسدلة
     document.addEventListener('DOMContentLoaded', function() {
-      fetch('https://raw.githubusercontent.com/Ranemat/rest-api/main/rest.json')
-        .then(response => response.json())
+      var myHeaders = new Headers();
+      myHeaders.append("apikey", "HSy8yu04IdT3GlGI5jVphs0zJOLP1kxW");
+      myHeaders.append("Cookie", "cookiesession1=678B76B332A5344FE7D26C12C99B1F7C; f4ffa170d1ce2881b37ce489ee22489a=25feed5472422402d02ef10a37e12002");
+      myHeaders.append("User-Agent", "PostmanRuntime/7.41.1");
+      myHeaders.append("Accept", "*/*");
+      myHeaders.append("Accept-Encoding", "gzip, deflate, br");
+      myHeaders.append("Connection", "keep-alive");
+
+      var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+
+      fetch('https://apidev.mobily.com.sa/restaurants', requestOptions)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+          }
+          return response.json();
+        })
         .then(advertisements => {
+          console.log(advertisements); // طباعة البيانات للتأكد من نجاح جلب البيانات
           window.advertisements = advertisements; // حفظ البيانات لتسهيل الوصول إليها في وظيفة البحث
 
           var adList = document.getElementById('search-list');
@@ -243,19 +143,11 @@
             `;
             advertisementList.appendChild(dropdown);
           });
+        })
+        .catch(error => {
+          console.log('error', error);
+          alert('حدث خطأ أثناء جلب البيانات. يرجى التحقق من اتصالك أو المحاولة لاحقًا.');
         });
-
-      searchForm.addEventListener('click', function() {
-        searchContent.style.display = 'block';
-        searchInput.focus();
-      });
-
-      searchInput.addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-          event.preventDefault();
-          filterSearchResults();
-        }
-      });
     });
 
     function searchFunction() {
@@ -291,15 +183,16 @@
         }
       });
     }
+
     function clearSearchBox() {
-    document.getElementById('searchInput').value = '';
-    document.getElementById('search-list').style.display = 'none';
+      document.getElementById('searchInput').value = '';
+      document.getElementById('search-list').style.display = 'none';
 
-    // عرض جميع الإعلانات عند مسح صندوق البحث
-    var advertisementList = document.querySelector('.dropdown-container');
-    advertisementList.innerHTML = '';
+      // عرض جميع الإعلانات عند مسح صندوق البحث
+      var advertisementList = document.querySelector('.dropdown-container');
+      advertisementList.innerHTML = '';
 
-    window.advertisements.forEach(function(ad) {
+      window.advertisements.forEach(function(ad) {
         var dropdown = document.createElement('div');
         dropdown.className = 'dropdown';
 
@@ -318,9 +211,8 @@
             </div>
         `;
         advertisementList.appendChild(dropdown);
-    });
-}
-
+      });
+    }
 
     // Cognigy Webchat Widget
     initWebchat("https://endpoint-app.cognigy.ai/1e2e81c29d60234b4240dda4f08cad73dc74f407af5d37678ddbdd5a69b2afca", {

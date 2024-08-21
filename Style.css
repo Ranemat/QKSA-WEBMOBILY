@@ -1,3 +1,4 @@
+
 .Logo { 
   position: absolute; 
   top: 0; 
@@ -113,6 +114,127 @@ ul li a:hover {
   z-index: 1;
   padding-bottom: 150px; /* احتياطي لضمان عدم تغطية النص بالفوتر */
 }
+
+
+
+body {
+  background-color: #F4EEE2;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+.advertisement-title {
+  color: #8B0000; /* أحمر غامق */
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.advertisement-description {
+  color: #8B0000; /* أحمر غامق */
+  font-size: 1.2em;
+  word-wrap: break-word;
+  max-width: 600px; /* تعديل العرض حسب الحاجة */
+}
+
+.advertisement-location {
+  color: #0000EE; /* أزرق */
+  text-decoration: underline;
+}
+
+/* تكبير حجم أسماء المطاعم في قائمة الإعلانات */
+#advertisement-list li h3 {
+  font-size: 2em; /* حجم الخط الجديد */
+}
+
+.Coffee {
+  float: right;
+  width: 400px;
+  height: 400px;
+}
+
+.header {
+  text-align: center;
+  position: relative;
+}
+
+.background-image {
+  width: 100%; /* Adjust the width to fit the container */
+  height: auto;
+  position: absolute;
+  top: 100px; /* Adjust this value to move the image down */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+/* تطبيق الإعدادات عند استخدام الهاتف */
+@media only screen and (max-width: 768px) {
+  .container {
+    margin-top: 150px; /* Adjust the margin top for mobile screens */
+  }
+
+  .background-image {
+    width: 100%; /* Adjust the width to fit the container */
+    height: auto;
+    position: absolute;
+    top: 100px; /* Adjust this value to move the image down */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+}
+
+.container, .logo-container, #searchForm {
+  position: relative;
+  z-index: 1;
+}
+
+#searchForm {
+  margin-top: 250px; /* Adjust this value based on the height of your background image */
+}
+
+.centered-content {
+  width: 100%;
+  max-width: 600px; /* نفس عرض صندوق البحث */
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.rtl {
+  text-align: right;
+  direction: rtl;
+}
+
+.ltr {
+  text-align: left;
+  direction: ltr;
+}
+
+.advertisement-title {
+  margin-bottom: 10px;
+}
+
+.advertisement-description {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.advertisement-location {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.advertisement-location:hover {
+  text-decoration: underline;
+} 
+
+
 
 /* تطبيق القاعدة فقط على أجهزة الجوال */
 @media only screen and (max-width: 768px) {
