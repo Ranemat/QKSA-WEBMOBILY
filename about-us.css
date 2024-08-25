@@ -1,3 +1,6 @@
+
+
+/* About Section */
 .about-section {
     display: flex;
     flex-wrap: wrap;
@@ -18,19 +21,7 @@
     margin: 10px 0;
 }
 
-.about-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.about-section ul li {
-    margin-bottom: 10px;
-}
-
-.about-section ul li::before {
-    content: "";
-}
-
+/* Contact Info */
 .contact-info {
     margin-top: 20px;
 }
@@ -57,12 +48,14 @@
     margin-right: 5px;
 }
 
+/* About Text */
 .about-text {
     font-size: 1.1em;
     line-height: 1.6em;
     text-align: justify;
 }
 
+/* Section Title */
 .section-title {
     display: flex;
     align-items: center;
@@ -74,6 +67,7 @@
     font-size: 1.2em;
 }
 
+/* Website Overview */
 .website-overview {
     margin-right: 50px; /* Adjust this value to move the section to the right */
 }
@@ -92,107 +86,75 @@
     list-style-type: disc;
 }
 
-body {
-    background-color: #F4EEE2;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-attachment: fixed;
-    overflow-x: hidden;
-}
-
-.header {
-    text-align: center;
-    position: relative;
-}
-
-.contact-info ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.contact-info li {
-    margin-bottom: 10px;
-}
-
-.contact-info i {
-    margin-right: 8px;
-}
-
+/* Contact Assistance */
 .contact-assistance {
-    margin-top: 40px; /* زيادة المسافة العلوية */
+    margin-top: 40px; /* Increase the top margin */
     font-size: 18px;
     color: #333;
 }
 
 .contact-assistance a {
-    color: black; /* استخدام لون مشابه للون في الصورة */
+    color: black; /* Use a color similar to the image */
     text-decoration: none;
     font-weight: bold;
-    font-size: 16px; /* تصغير حجم النص للأرقام */
+    font-size: 16px; /* Reduce font size for numbers */
 }
 
 .contact-assistance a:hover {
     text-decoration: underline;
 }
-/* القاعدة للجوال */
-@media only screen and (max-width: 768px) {
-    .Logo {
-        width: 60px; /* تعديل حجم الشعار */
-        height: 60px;
-    }
 
-    .text {
-        margin-left: 60px;
-        font-size: 14px; /* تعديل حجم النص بجانب الشعار */
-    }
-
-    .navbar {
-        display: flex;
-        justify-content: center; /* تغيير المحاذاة لتكون القائمة في المنتصف */
-        align-items: center;
-        padding-right: 10px;
-        margin-top: 10px; /* رفع القائمة للأعلى لتكون بمحاذاة الشعار */
-    }
-
-    .nav-list {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center; /* تغيير المحاذاة لتكون القائمة في المنتصف */
-    }
-
-    .nav-list li {
-        margin: 0 5px; /* تقليل المسافة بين العناصر */
-    }
-
-    .nav-list li a {
-        color: #333;
-        text-decoration: none;
-        font-size: 13px; /* تقليل حجم الخط */
-        padding: 5px 8px;
-        display: block;
-    }
-
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
     .about-section {
-        font-size: 14px; /* تصغير حجم النصوص */
-        padding: 10px;
+        margin: 20px;
+        padding: 15px;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .section-title {
-        font-size: 18px; /* تعديل حجم عنوان الأقسام */
+    .about-section div {
+        flex-basis: 100%;
+        margin: 10px 0;
+    }
+
+    .contact-info, .website-overview {
+        margin-right: 0;
+        text-align: center;
     }
 
     .about-text {
-        font-size: 14px; /* تصغير حجم نص "About Us" */
+        font-size: 1em;
+        line-height: 1.5em;
     }
 
-    .contact-info {
-        font-size: 14px; /* تصغير حجم نص "Contact Info" */
+    .section-title {
+        justify-content: center;
     }
 
-    .contact-assistance {
-        font-size: 14px; /* تصغير حجم نص المساعدة */
+    .website-overview ul ul {
+        margin-left: 10px;
+    }
+
+    .chat-call-buttons {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+}
+
+/* Smaller Devices (Mobile Phones) */
+@media (max-width: 480px) {
+
+    .about-text {
+        font-size: 0.9em;
+    }
+
+    .contact-info ul li, .website-overview ul li {
+        font-size: 0.9em;
+    }
+
+    .contact-assistance a {
+        font-size: 14px;
     }
 }
