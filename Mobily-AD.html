@@ -10,6 +10,64 @@
   <link rel="stylesheet" href="Dropdown.css">
   <link rel="stylesheet" href="search.css">
   <link rel="stylesheet" href="chat-call.css">
+
+  <style>
+    
+
+body {
+  background-color: #F4EEE2;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+.advertisement-title {
+  color: #8B0000; /* أحمر غامق */
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.advertisement-description {
+  color: #8B0000; /* أحمر غامق */
+  font-size: 1.2em;
+  word-wrap: break-word;
+  max-width: 600px; /* تعديل العرض حسب الحاجة */
+}
+
+.advertisement-location {
+  color: #0000EE; /* أزرق */
+  text-decoration: underline;
+}
+
+/* تكبير حجم أسماء المطاعم في قائمة الإعلانات */
+#advertisement-list li h3 {
+  font-size: 2em; /* حجم الخط الجديد */
+}
+
+.Coffee {
+  float: right;
+  width: 400px;
+  height: 400px;
+}
+
+.header {
+  text-align: center;
+  position: relative;
+}
+
+.background-image {
+  width: 100%; /* Adjust the width to fit the container */
+  height: auto;
+  position: absolute;
+  top: 100px; /* Adjust this value to move the image down */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+    </style>
+
 </head>
 <body>
   <header class="header">
