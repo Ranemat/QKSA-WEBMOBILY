@@ -144,26 +144,28 @@
     </div>
 
     <!-- Cognigy Webchat Widget -->
-    <script src="https://github.com/Cognigy/WebchatWidget/releases/download/v3.0.0-beta.30/webchat.js"></script>
-    <script>
-        // Cognigy Webchat Widget
-        initWebchat("https://endpoint-app.cognigy.ai/1e2e81c29d60234b4240dda4f08cad73dc74f407af5d37678ddbdd5a69b2afca", {
-            // Configuration options
-            style: {
-                // Custom styles for the chat widget
-                width: '200px',
-                height: '400px',
-                bottom:'100px'
-            },
-            settings: {
-                // Other settings like greeting message
-                // greeting: "Hello! How can I assist you today?"
-            }
-        }).then(function(webchat) {
-            // Embedding the webchat in a specific HTML element
-            webchat.render(document.getElementById("chatbot-container"));
-        });
-    </script>
+    <script src="https://github.com/Cognigy/Webchat/releases/latest/download/webchat.js"></script>
+ 
+    
+<script>
+    initWebchat("https://endpoint-app.cognigy.ai/7a81a00e01967afb9267dba7adef37247d49537e588c925aa9fd3018bc99d2b7", {
+        // Configuration options
+        style: {
+            // Custom styles for the chat widget
+            width: '50px',
+            height: '100px'
+        },
+        settings: {
+            // Other settings like greeting message
+            // greeting: "Hello! How can I assist you today?"
+        }
+    })
+    .then(function(webchat) {
+        // Embedding the second webchat in a specific HTML element
+        webchat.render(document.getElementById("chatbot-container-2"));
+    });
+  </script>
+   
 
     <div class="spacer"></div>
     <footer class="footer">
